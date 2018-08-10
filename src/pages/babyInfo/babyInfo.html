@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>宝宝信息</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <!-- start -->
+    <ion-row>
+      <ion-col>
+        <div class="flex-center head-box">
+          <div class="circle flex-center" (click)="selectPicture()">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-ertong"></use>
+            </svg>
+            <div class="camera flex-center">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-xiangji"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <!-- end -->
+    <!-- start -->
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            <ion-label color="primary">宝宝名字</ion-label>
+            <ion-input placeholder="请输入宝宝的名字" [(ngModel)]="babyInfo.name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">出生日期</ion-label>
+            <ion-datetime text-left displayFormat="YYYY-MM-DD" [(ngModel)]="babyInfo.birthDate" placeholder="出生日期"></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">出生时间</ion-label>
+            <ion-datetime displayFormat="HH:mm" [(ngModel)]="babyInfo.birthTime" placeholder="出生时间"></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <div class="small-font">预产日期用于校正早产儿的成长图表</div>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">预产日期</ion-label>
+            <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="babyInfo.expectedBirthDate" placeholder="预产日期"></ion-datetime>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <!-- end -->
+    <!-- start -->
+    <ion-row text-center>
+      <ion-col>
+        <button ion-button icon-left color="{{babyInfo.sex===true?'primary':'light'}}" (click)="babyInfo.sex=true;">
+          <ion-icon name="male"></ion-icon>
+          男孩
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left color="{{babyInfo.sex===false?'primary':'light'}}" (click)="babyInfo.sex=false;">
+          <ion-icon name="female"></ion-icon>
+          女孩
+        </button>
+      </ion-col>
+    </ion-row>
+    <!-- end -->
+    <!-- start -->
+    <ion-row>
+      <ion-col text-center>
+        <button ion-button full (click)="save()">完成</button>
+      </ion-col>
+    </ion-row>
+    <!-- end -->
+  </ion-grid>
+</ion-content>

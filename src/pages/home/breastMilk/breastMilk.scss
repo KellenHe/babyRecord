@@ -1,0 +1,22 @@
+.operation {
+  font-weight: 800;
+  padding: 8px;
+  border-bottom: 1px solid color($colors, light);
+  border-right: 1px solid color($colors, light);
+}
+
+.subTitle {
+  font-size: 12px;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.high-light {
+  color: #FF6600;
+}
+
+ion-textarea {
+  background-color: #FFFFCC;
+}

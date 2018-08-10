@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar color="primary" [hideBackButton]="true">
+    <ion-title>宝宝信息</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <div ion-item *ngFor="let item of babyInfoList">
+      <div class="item">
+        <img src="../../assets/imgs/header.jpg" />
+        <span>{{item.name}}</span>
+        <div class="operating">
+          <div class="operating-item" (click)="modifyBabyInfo(item)">
+            <ion-icon name="brush"></ion-icon>
+          </div>
+          <div class="operating-item" (click)="deleteBabyInfo(item)">
+            <ion-icon name="trash"></ion-icon>
+          </div>
+          <div class="operating-item" (click)="gotoHome(item)">
+            <ion-icon name="arrow-forward"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ion-item (click)="addNewBaby()">
+      <div text-center class="new-baby">
+        <ion-icon name="add-circle-outline"></ion-icon>
+        添加一个宝宝
+      </div>
+    </div>
+  </ion-list>
+</ion-content>

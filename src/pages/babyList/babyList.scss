@@ -1,0 +1,28 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 85px;
+
+  img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+
+  .operating {
+    display: flex;
+    justify-content: space-between;
+    color: color($colors, Silver);
+    font-size: 20px;
+
+    .operating-item {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+}
+
+.new-baby {
+  color: color($colors, primary);
+}

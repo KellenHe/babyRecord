@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>喂母乳</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-grid no-padding *ngIf="isAuto">
+    <ion-row text-center>
+      <ion-col>
+        <div class="operation">
+          <div class="subTitle">开始时间</div>
+          <div class="title">{{startTime.calendar()}}</div>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="operation">
+          <div class="subTitle">上次开始侧</div>
+          <div class="title">{{pageText + ' ' + lastFeedingRecord.leftOfRight}}</div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="high-light">
+      <ion-col>
+        <div class="operation">
+          <div text-center>左</div>
+          <div *ngIf="leftState" text-center (click)="startLeft()">
+            <svg class="icon" aria-hidden="true" style="font-size: 30px;">
+              <use xlink:href="#icon-play"></use>
+            </svg>
+          </div>
+          <div *ngIf="!leftState" text-center (click)="endLeft()">
+            <svg class="icon" aria-hidden="true" style="font-size: 30px;">
+              <use xlink:href="#icon-zanting"></use>
+            </svg>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="operation">
+          <div text-center>右</div>
+          <div *ngIf="rightState" text-center (click)="startRight()">
+            <svg class="icon" aria-hidden="true" style="font-size: 30px;">
+              <use xlink:href="#icon-play"></use>
+            </svg>
+          </div>
+          <div *ngIf="!rightState" text-center (click)="endRight()">
+            <svg class="icon" aria-hidden="true" style="font-size: 30px;">
+              <use xlink:href="#icon-zanting"></use>
+            </svg>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="operation">
+          <div text-left class="subTitle">左侧时长</div>
+          <div class="flex-center high-light">
+            <ion-input text-center type="number" (keypress)="checkInput($event)" [(ngModel)]="leftTimeMinute" (ngModelChange)="leftTimeMinuteChange($event)"></ion-input>
+            分
+            <ion-input text-center type="number" (keypress)="checkInput($event)" [(ngModel)]="leftTimeSeconds" (ngModelChange)="leftTimeSecondsChange($event)"></ion-input>
+            秒
+          </div>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="operation">
+          <div text-left class="subTitle">右侧时长</div>
+          <div class="flex-center high-light">
+            <ion-input text-center type="number" (keypress)="checkInput($event)" [(ngModel)]="rightTimeMinute" (ngModelChange)="rightTimeMinuteChange($event)"></ion-input>
+            分
+            <ion-input text-center type="number" (keypress)="checkInput($event)" [(ngModel)]="rightTimeSeconds" (ngModelChange)="rightTimeSecondsChange($event)"></ion-input>
+            秒
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="operation">
+          <div text-left class="subTitle">总时长</div>
+          <div class="high-light">
+            <span>{{totalTimeHours}}</span>小时
+            <span>{{totalTimeMinute}}</span>分
+            <span>{{totalTimeSeconds}}</span>秒
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-textarea type="text" placeholder="便条" max="600" rows="15" [(ngModel)]="feedingRecord.comments"></ion-textarea>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button full (click)="save()">保存</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

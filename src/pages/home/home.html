@@ -1,0 +1,48 @@
+<ion-content>
+  <div class="home-header" (click)="addBaby()">
+    <div padding class="flex-center">
+      <div>
+        <h5>{{babyInfo.name}}
+          <ion-icon name="arrow-dropright"></ion-icon>
+        </h5>
+        <div>{{age}}天</div>
+      </div>
+    </div>
+    <div padding class="flex-center">
+      <img src="../../assets/imgs/header.jpg" />
+    </div>
+  </div>
+  <ion-list no-lines>
+    <div class="action-box flex-center" *ngFor="let action of actionInfoList; let j = index">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3 text-center [ngStyle]="{'color':action.fontColor}" (click)="showSubAction(action)">
+            <svg class="icon" aria-hidden="true" style="font-size: 30px;">
+              <use [attr.xlink:href]="action.imgName"></use>
+            </svg>
+          </ion-col>
+          <ion-col col-6 (click)="showSubAction(action)">
+            <div class="no-data">
+              <ion-icon name="add-circle-outline"></ion-icon>添加{{action.text}}记录
+            </div>
+          </ion-col>
+          <ion-col col-3 text-center>
+            <div class="no-data">
+              <ion-icon style="font-size: 30px;" name="alarm"></ion-icon>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div *ngIf="action.subActionList&&action.subActionList.length>0" class="sub-action-box" [ngStyle]="{'background-color':action.fontColor}"
+        [@subActionState]="action.showSubAction">
+        <div class="sub-action" *ngFor="let subAction of action.subActionList; let i = index;" [ngClass]="{'sub-action-br':i!==action.subActionList.length-1}"
+          (click)="gotoPage(subAction)">
+          <svg class="icon" aria-hidden="true" style="font-size: 30px;">
+            <use [attr.xlink:href]="subAction.imgName"></use>
+          </svg>
+          <div>+{{subAction.text}}</div>
+        </div>
+      </div>
+    </div>
+  </ion-list>
+</ion-content>

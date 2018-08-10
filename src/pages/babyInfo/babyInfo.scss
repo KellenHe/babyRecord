@@ -1,0 +1,23 @@
+.head-box {
+  height: 150px;
+  font-size: 80px;
+}
+
+.circle {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #CCCCCC;
+}
+
+.camera {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 20px;
+}
+
+.small-font {
+  font-size: 12px;
+}
